@@ -23,20 +23,32 @@ const Home = () => {
     <Container sx={{ mt: 4 }}>
       
       <TextField
-        label="Search Movies Here"
-        fullWidth
-        variant="outlined"
-        sx={{ mb: 2 }}
-        onChange={(e) => setQuery(e.target.value)}
-      />
-           <div className="flex justify-between mt-4 mb-6" >
-        <Button variant="contained" disabled={page === 1} onClick={() => setPage(page - 1)} sx={{ml:1}}>
-          Previous
-        </Button>
-        <Button variant="contained" onClick={() => setPage(page + 1)} sx={{mr:3}}>
-          Next
-        </Button>
-      </div>
+  label="Search Movies Here"
+  fullWidth
+  variant="outlined"
+  sx={{
+    mb: 2,
+    '& .MuiOutlinedInput-root': {
+      borderRadius: '8px', 
+      backgroundColor: '#f9f9f9', 
+      '&:hover fieldset': {
+        borderColor: '#007bff', 
+      },
+      '&.Mui-focused fieldset': {
+        borderColor: '#007bff', 
+      },
+    },
+    '& .MuiInputLabel-root': {
+      color: '#555',
+    },
+    '& .MuiInputLabel-root.Mui-focused': {
+      color: '#007bff',
+    },
+  }}
+  onChange={(e) => setQuery(e.target.value)}
+/>
+
+
       {loading ? (
         <CircularProgress />
       ) : (
@@ -58,7 +70,13 @@ const Home = () => {
       
       )}
 
-     
+<div className="flex justify-center items-center space-x-2 mt-4 text-2xl font-semibold ">
+      <Button variant="contained" disabled={page === 1} onClick={() => setPage(page - 1)} sx={{m:4}}>Previous</Button>
+  <button className="join-item btn">Page {page}</button>
+  <Button variant="contained" onClick={() => setPage(page + 1)} sx={{m:4}}>
+          Next
+        </Button>
+</div>
     </Container>
   );
 };

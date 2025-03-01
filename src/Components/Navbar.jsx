@@ -6,7 +6,7 @@ const Navbar = () => {
   return (
     <AppBar position="static">
       <Toolbar>
-        <Typography variant="h6" component={Link} to="/" sx={{ textDecoration: "none", color: "white",textAlign: "center", fontSize: "1.5rem", fontWeight: "bold", }}>
+        <Typography variant="h6" component={Link} to="/" sx={{ textDecoration: "none", color: "white",alignItems: "center", fontSize: "1.5rem", fontWeight: "bold",  }}>
           🎬 Movie Finder
         </Typography>
       </Toolbar>
@@ -15,3 +15,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
